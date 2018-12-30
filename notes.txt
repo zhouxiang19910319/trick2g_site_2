@@ -1,0 +1,44 @@
+Task I am trying to do:
+
+1. retrieve youtube playlist JSON from its server
+  `loadVids()`
+2. append all the data to my HTML element
+
+=========================================================
+I've already set up the API key, playlist ID , URL, as well as options we need to submit when making HTTP request.
+
+
+// Goal: Create a function that will load the main video.
+
+function loadMainVideo(){
+  // using fetch to make HTTP request
+  // load the 1st video in the returned data into the main feed
+}
+
+function loadPlaylist(){
+  // 0. find the exact data we need to tap into
+  // 1. change data from object to array
+  // 2. use forEach on this array
+}
+
+
+
+
+Goal: 
+
+1. everytime I click on each item, the video ID of that item will be logged
+2. 
+
+
+background: 
+
+1. I wrote a loadMainVideo function which will load the main video according to the videoId you pass in
+2. in the second function loadPlaylist , it shall log the video ID everytime I click on the list item
+3. the video ID the second function outputed , should be passed into the 1st function's videoID 
+
+
+
+
+
+1. click thumbnail, log video ID of the thumbnail video.
+2. click thumbnail , insert video ID of the thumbnail video into first_video_id in fetch function.

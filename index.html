@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="trick2g site" content="un-official trick2g site, where you can find all of trick's videos in one place">
+  <title>1TimeForthe1Time</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <!--Nav Bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><img src="https://res.cloudinary.com/zzrot/image/upload/v1543380836/trick2g_site/favicon.png"
+        width="30" height="30" alt="">Trick2g's un-official site version 2</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="addRandomQuote()"
+            id="quote_button"><i class="fas fa-quote-right fa-2x"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/zh0ux1ang" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/zhouxiang19910319" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://zhouxiang19910319.github.io/project_documentations/2018/12/12/Trick2g-Site-Project-Documentation.html"
+            target="_blank"><i class="fas fa-info-circle fa-2x"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--end of Nav bar-->
+
+  <!--bootstrap 4 modal section-->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal_title">Random Quote From Trick's youtube channel</h2>
+        </div>
+        <div class="modal-body">
+          <img src="https://res.cloudinary.com/zzrot/image/upload/v1544535327/trick2g_site/LUL.png" alt="LUL" id="quote_image">
+          <p id="quote_p">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <!--twitch.tv part-->
+    <div id="twitchtv_header">
+      <img src="./img/twitch.png" alt="twitch.tv logo" id="twitch_logo">
+      <h1>twitch.tv</h1>
+    </div>
+
+    <div id="twitch_tv_wrapper" class="row">
+      <div id="twitch_video_wrapper" class="embed-responsive embed-responsive-16by9 col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div id="twitch_video">
+          <iframe src="https://player.twitch.tv/?channel=trick2g&muted=true" height="720" width="1280" frameborder="0"
+            scrolling="no" allowfullscreen="true" muted="true">
+          </iframe>
+          </iframe>
+        </div>
+      </div>
+      <div id="twitch_chat_wrapper" class="embed-responsive embed-responsive-16by9 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <iframe scrolling="yes" id="trick2g" src="https://www.twitch.tv/embed/trick2g/chat"></iframe>
+      </div>
+    </div>
+
+    <!--Youtube Part-->
+    <!--youtube Header-->
+    <div id="youtube_header">
+      <img src="./img/youtube_logo.png" alt="youtube_logo" id="youtube_logo">
+      <h1>Youtube</h1>
+    </div>
+
+    <!--youtube feed row-->
+    <div class="row">
+      <!--YOutube Player-->
+      <div id="youtube_feed" class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered"></div>
+    </div>
+
+    <!--youtube playlist row-->
+    <div class="row">
+      <!--Youtube Playlist-->
+      <div id="youtube_playlist" class="bg-light col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
+    </div>
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <!--twitch.tv embed-->
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <!--twitch.tv-->
+  <!--app.js-->
+  <script src="app.js"></script>
+</body>
+
+</html>

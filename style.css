@@ -1,0 +1,124 @@
+/*Universal*/
+
+body {
+  /* background: rgb(100, 65, 164);
+  background: linear-gradient(180deg, rgba(100, 65, 164, 1) 50%, rgba(255, 0, 0, 1) 100%); */
+
+  margin: 0;
+}
+
+.col-centered {
+  margin: 0 auto;
+}
+
+/*random quote button*/
+#quote_image {
+  height: 100px;
+}
+
+#quote_p {
+  align-self: center;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#quote_button {
+  margin: 0 auto;
+  display: block;
+}
+
+/*navbar*/
+.footer_and_navbar_text {
+  color: white;
+}
+
+.navbar,
+footer {
+  background-color: rebeccapurple;
+}
+
+nav a {
+  margin-left: 0;
+}
+
+/*
+Twitch.tv section
+*/
+
+
+#twitch_tv_wrapper {}
+
+
+/*
+Youtube Section
+*/
+#youtube_header,
+#twitchtv_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+#youtube_logo,
+#twitch_logo {
+  height: 80px;
+}
+
+#youtube_feed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#youtube_playlist {
+  position: absolute;
+  overflow-y: scroll;
+  height: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.individual_list_item {
+  padding: 10px 10px;
+  border: 2px solid white;
+}
+
+.individual_list_item:hover {
+  border: 2px solid #ff0000;
+  cursor: pointer;
+}
+
+.thumbnails {
+  width: 100%;
+}
+
+.playlist_titles {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* Media Query
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/*  Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
