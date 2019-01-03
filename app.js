@@ -21,63 +21,62 @@ function addRandomQuote() {
 }
 
 
-// constants
+/* 
+TODO list
+
+1. need a fetch function to handle HTTP request
+2. renderMainVideo() 
+3. renderPlaylist()
+4. call back function for the click event
+*/
+
+
+/*
+Global variables and constants
+*/
+
+
 const key = 'AIzaSyDKxuIPPLYh9lxuLXlVhzStyqHAWvl6IdE';
 const playlistId = 'UUuSrv3qgQA7SSi6R9bWag5A';
 var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 
-//youtube API sees all these info, so that it knows what kind of information you want to retrieve
 const options = {
   playlistId: playlistId,
-  maxResults: 20,
+  maxResults: 50,
   key: key,
   part: 'snippet'
 };
 
-let loadMainVideo = function () {
 
-  //put in options into the URL so that youtube API will work
-  URL += '?' + Object.keys(options).map((k) => k + '=' + encodeURIComponent(options[k])).join('&');
-  //use fetch to get HTTP request
-  fetch(URL)
-    .then(res => res.json())
-    .then(function (data) {
-      loadPlayList(data);
-      var first_video_id = data.items[0].snippet.resourceId.videoId;
-      //put the 1st video in the playlist into the dom
-      document.getElementById('youtube_feed').innerHTML = `
-      <iframe width="1280" height="720" src="https://www.youtube.com/embed/${first_video_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      `
+/* 
+HTTP request
+*/
+URL += '?' + Object.keys(options).map((k) => k + '=' + encodeURIComponent(options[k])).join('&');
 
+fetch(URL)
+  .then(res => res.json())
+  .then(function (data) {
+    let mainVideoID;
+    mainVideoID = data.items[0].snippet.resourceId.videoId;
+    renderPlaylist(data);
+    renderMainVideo(mainVideoID);
+  });
 
-      document
-        .getElementById('youtube_playlist')
-        .addEventListener('click', function (event) {
-          // const target = event.target;
-          // console.log({ target });
-
-          if (event.target.dataset.key) {
-            console.log(event.target.dataset.key);
-            first_video_id = event.target.dataset.key;
-          } else {
-            console.log(event.target.parentElement.dataset.key);
-            first_video_id = event.target.parentElement.dataset.key;
-          }
-
-          // console.log("The key is", target);
-        });
-    })
-    .catch(err => console.log(err))
+/*
+Render main video
+ */
+function renderMainVideo(mainVideoID) {
+  document.getElementById('youtube_feed').innerHTML = `
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/${mainVideoID}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 }
 
-loadMainVideo();
 
 
-/*  
-Load Playlist
+
+/*
+Render Playlist
 */
-
-function loadPlayList(data) {
+function renderPlaylist(data) {
   console.log(data.items.length); //this gives you 20 which is correct
 
   //let's try loop through the array using for loop
@@ -96,37 +95,22 @@ function loadPlayList(data) {
   }
 }
 
-// document
-// .getElementById('youtube_playlist')
-// .addEventListener('click',function(event){
-//   // const target = event.target;
-//   // console.log({ target });
+/*
+Call back function for the click event
+*/
 
-//   let key;
-//   if (event.target.dataset.key) {
-//     key = event.target.dataset.key;
-//   } else {
-//     console.log(event.target.parentElement.dataset.key);
-//     key = event.target.parentElement.dataset.key;
-//   }
+/* every time you click the video, you want to get the videoID of that specific video */
 
-//   // console.log("The key is", target);
-// });
+document.getElementById('youtube_playlist')
+  .addEventListener('click', function (event) {
+    const target = event.target;
 
-// document
-// .getElementById('youtube_playlist')
-// .addEventListener('click',function(event){
-//   // const target = event.target;
-//   // console.log({ target });
-
-
-//   if (event.target.dataset.key) {
-//     console.log(event.target.dataset.key);
-//     first_video_id = event.target.dataset.key;
-//   } else {
-//     console.log(event.target.parentElement.dataset.key);
-//     first_video_id= event.target.parentElement.dataset.key;
-//   }
-
-//   // console.log("The key is", target);
-// });
+    let mainVideoID_forclick;
+    if (event.target.dataset.key) {
+      mainVideoID_forclick = event.target.dataset.key;
+      renderMainVideo(mainVideoID_forclick);
+    } else {
+      mainVideoID_forclick = event.target.parentElement.dataset.key;
+      renderMainVideo(mainVideoID_forclick);
+    }
+  })
