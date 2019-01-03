@@ -77,7 +77,7 @@ function renderMainVideo(mainVideoID) {
 Render Playlist
 */
 function renderPlaylist(data) {
-  console.log(data.items.length); //this gives you 20 which is correct
+  // console.log(data.items.length); 
 
   //let's try loop through the array using for loop
   for (let i = 1; i < data.items.length; i++) {

@@ -1,15 +1,13 @@
 /*Universal*/
 
 body {
-  /* background: rgb(100, 65, 164);
-  background: linear-gradient(180deg, rgba(100, 65, 164, 1) 50%, rgba(255, 0, 0, 1) 100%); */
-
   margin: 0;
 }
 
 .col-centered {
   margin: 0 auto;
 }
+
 
 /*random quote button*/
 #quote_image {
@@ -29,6 +27,8 @@ body {
   margin: 0 auto;
   display: block;
 }
+
+
 
 /*navbar*/
 .footer_and_navbar_text {
